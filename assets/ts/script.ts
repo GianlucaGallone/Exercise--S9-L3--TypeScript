@@ -1,5 +1,58 @@
 const CONT = document.querySelector('.container');
 
+document.addEventListener('DOMContentLoaded', () => {
+    // al caricamento della pagina creo gli elementi dinamicamente
+
+    /* =============== Div Lav. Autonomo =============== */
+
+    let autDiv = document.createElement('div');
+    autDiv.className = 'autDiv';
+
+    let lordoAut = document.createElement('p');
+    lordoAut.id = 'lordoAut';
+    lordoAut.innerHTML = `Lavoratore Autonomo - Reddito Lordo: ${lavAut1.reddLordo} Euro`;
+
+    let inpsAut = document.createElement('p');
+    inpsAut.id = 'inpsAut';
+    inpsAut.innerHTML = `Tasse INPS: ${lavAut1.tasseInps}%`;
+
+    let irpefAut = document.createElement('p');
+    irpefAut.id = 'irpefAut';
+    irpefAut.innerHTML = `Tasse Irpef: ${lavAut1.tasseIrpef}%`;
+
+    let nettoAut = document.createElement('p');
+    nettoAut.id = 'nettoAut';
+    nettoAut.innerHTML = `Reddito Netto: ${lavAut1.calcNet()} Euro`;
+
+    /* =============== Div Lav. Dipendente =============== */
+
+    let dipDiv = document.createElement('div');
+    dipDiv.className = 'dipDiv';
+
+    let lordoDip = document.createElement('p');
+    lordoDip.id = 'lordoDip';
+    lordoDip.innerHTML = `Lavoratore Dipendente - Reddito Lordo: ${lavDip1.reddLordo} Euro`;
+
+    let inpsDip = document.createElement('p');
+    inpsDip.id = 'inpsDip';
+    inpsDip.innerHTML = `Tasse INPS: ${lavDip1.tasseInps}%`;
+
+    let irpefDip = document.createElement('p');
+    irpefDip.id = 'irpefDip';
+    irpefDip.innerHTML = `Tasse Irpef: ${lavDip1.tasseIrpef}%`;
+
+    let nettoDip = document.createElement('p');
+    nettoDip.id = 'nettoDip';
+    nettoDip.innerHTML = `Reddito Netto: ${lavDip1.calcNet()} Euro`;
+
+    /* ---------------------------------------- */
+
+    CONT?.append(autDiv, dipDiv);
+    autDiv?.append(lordoAut, inpsAut, irpefAut, nettoAut);
+    dipDiv?.append(lordoDip, inpsDip, irpefDip, nettoDip);
+
+});
+
 abstract class Lavoratore {
     private _coeffRedd: number;
     private _reddLordo: number;
@@ -26,9 +79,9 @@ abstract class Lavoratore {
         return this._tasseIrpef;
     }
 
+    // DA AGGIUNGERE coefficente di reddito
     // il coefficente di reddito fa variare le tasse IRPEF (reddito imponibile) in base al codice (quindi in base al settore lavorativo)
-    // es. 20.000 euro lordi per un lav. attivita professionale 78%. 20.000 - 78% = 15.600 (cifra soggetta a tassazione)
-
+    // es. 20.000 euro lordi per un lav. attivita professionale (solo il 78% di 20.000 viene tassato). --> 20.000 - 78% = 15.600 (cifra soggetta a tassazione)
 
     // questo metodo mi deve sempre ritornare il calcolo del lordo-tasse = netto
     calcNet(): number {
