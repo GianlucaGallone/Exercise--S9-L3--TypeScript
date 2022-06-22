@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lordoAut = document.createElement('p');
     lordoAut.id = 'lordoAut';
-    lordoAut.innerHTML = `Lavoratore Autonomo - Reddito Lordo: ${lavAut1.reddLordo} Euro`;
+    lordoAut.innerHTML = ` - Scheda Lavoratore Autonomo - <br> Reddito Lordo: ${lavAut1.reddLordo} Euro`;
 
     let inpsAut = document.createElement('p');
     inpsAut.id = 'inpsAut';
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let irpefAut = document.createElement('p');
     irpefAut.id = 'irpefAut';
-    irpefAut.innerHTML = `Tasse Irpef: ${lavAut1.tasseIrpef}%`;
+    irpefAut.innerHTML = `Tasse Irpef: ${lavAut1.tasseIrpef}%  <hr>`;
 
     let nettoAut = document.createElement('p');
     nettoAut.id = 'nettoAut';
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let lordoDip = document.createElement('p');
     lordoDip.id = 'lordoDip';
-    lordoDip.innerHTML = `Lavoratore Dipendente - Reddito Lordo: ${lavDip1.reddLordo} Euro`;
+    lordoDip.innerHTML = ` - Scheda Lavoratore Dipendente - <br> Reddito Lordo: ${lavDip1.reddLordo} Euro`;
 
     let inpsDip = document.createElement('p');
     inpsDip.id = 'inpsDip';
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let irpefDip = document.createElement('p');
     irpefDip.id = 'irpefDip';
-    irpefDip.innerHTML = `Tasse Irpef: ${lavDip1.tasseIrpef}%`;
+    irpefDip.innerHTML = `Tasse Irpef: ${lavDip1.tasseIrpef}%  <hr>`;
 
     let nettoDip = document.createElement('p');
     nettoDip.id = 'nettoDip';
@@ -73,7 +73,7 @@ abstract class Lavoratore {
         return this._reddLordo;
     }
     get tasseInps() {
-        return this._tasseInps; // mi ritorna il 10 spec. nell'oggetto
+        return this._tasseInps; // ritorna il 10 spec. nell'oggetto
     }
     get tasseIrpef() {
         return this._tasseIrpef;

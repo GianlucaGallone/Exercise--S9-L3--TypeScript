@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     autDiv.className = 'autDiv';
     let lordoAut = document.createElement('p');
     lordoAut.id = 'lordoAut';
-    lordoAut.innerHTML = `Lavoratore Autonomo - Reddito Lordo: ${lavAut1.reddLordo} Euro`;
+    lordoAut.innerHTML = ` - Scheda Lavoratore Autonomo - <br> Reddito Lordo: ${lavAut1.reddLordo} Euro`;
     let inpsAut = document.createElement('p');
     inpsAut.id = 'inpsAut';
     inpsAut.innerHTML = `Tasse INPS: ${lavAut1.tasseInps}%`;
     let irpefAut = document.createElement('p');
     irpefAut.id = 'irpefAut';
-    irpefAut.innerHTML = `Tasse Irpef: ${lavAut1.tasseIrpef}%`;
+    irpefAut.innerHTML = `Tasse Irpef: ${lavAut1.tasseIrpef}%  <hr>`;
     let nettoAut = document.createElement('p');
     nettoAut.id = 'nettoAut';
     nettoAut.innerHTML = `Reddito Netto: ${lavAut1.calcNet()} Euro`;
@@ -22,13 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     dipDiv.className = 'dipDiv';
     let lordoDip = document.createElement('p');
     lordoDip.id = 'lordoDip';
-    lordoDip.innerHTML = `Lavoratore Dipendente - Reddito Lordo: ${lavDip1.reddLordo} Euro`;
+    lordoDip.innerHTML = ` - Scheda Lavoratore Dipendente - <br> Reddito Lordo: ${lavDip1.reddLordo} Euro`;
     let inpsDip = document.createElement('p');
     inpsDip.id = 'inpsDip';
     inpsDip.innerHTML = `Tasse INPS: ${lavDip1.tasseInps}%`;
     let irpefDip = document.createElement('p');
     irpefDip.id = 'irpefDip';
-    irpefDip.innerHTML = `Tasse Irpef: ${lavDip1.tasseIrpef}%`;
+    irpefDip.innerHTML = `Tasse Irpef: ${lavDip1.tasseIrpef}%  <hr>`;
     let nettoDip = document.createElement('p');
     nettoDip.id = 'nettoDip';
     nettoDip.innerHTML = `Reddito Netto: ${lavDip1.calcNet()} Euro`;
@@ -51,7 +51,7 @@ class Lavoratore {
         return this._reddLordo;
     }
     get tasseInps() {
-        return this._tasseInps; // mi ritorna il 10 spec. nell'oggetto
+        return this._tasseInps; // ritorna il 10 spec. nell'oggetto
     }
     get tasseIrpef() {
         return this._tasseIrpef;
